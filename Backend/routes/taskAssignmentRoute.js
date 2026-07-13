@@ -3,10 +3,10 @@ const {auth, admin} =require('../middleware/auth')
 const uploadFiles = require('../middleware/docMulter')
 const {
     assignTask,
-    // assignMultipleUsers,
-    // assignMultipleTasks,
-    //getAllAssignments,
-    // getAssignmentById,
+    assignMultipleUsers,
+     assignMultipleTasks,
+    getAllAssignments,
+     getAssignmentById,
     // getUsersByTask,
     // getTasksByUser,
     // getMyAssignedTasks,
@@ -18,21 +18,21 @@ const {
     // getUnassignedTasks,
     // getUsersWithoutTasks,
     // getAssignmentsByStatus,
-    // getAssignmentCount,
-    // assignmentDashboard
+     getAssignmentCount,
+     assignmentDashboard
 } = require("../controllers/taskAssignmentController");
 
 const router = express.Router()
 
 router.post("/assignTask", auth, assignTask);
 
-// router.post("/assignMultipleUsers", auth, admin, assignMultipleUsers);
+ router.post("/assignMultipleUsers", auth, admin, assignMultipleUsers);
 
-// router.post("/assignMultipleTasks", auth, admin, assignMultipleTasks);
+ router.post("/assignMultipleTasks", auth, admin, assignMultipleTasks);
 
-//router.get("/getAllAssignments", auth, getAllAssignments);
+router.get("/getAllAssignments", auth, getAllAssignments);
 
-// router.get("/getAssignment/:ID", auth, getAssignmentById);
+ router.get("/getAssignment/:ID", auth, getAssignmentById);
 
 // router.get("/getUsersByTask/:TASK_ID", auth, getUsersByTask);
 
@@ -56,9 +56,9 @@ router.post("/assignTask", auth, assignTask);
 
 // router.get("/getAssignmentsByStatus", auth, getAssignmentsByStatus);
 
-// router.get("/getAssignmentCount", auth, admin, getAssignmentCount);
+ router.get("/getAssignmentCount", auth, admin, getAssignmentCount);
 
-// router.get("/dashboard", auth, admin, assignmentDashboard);
+ router.get("/dashboard", auth, admin, assignmentDashboard);
 
 
 module.exports = router

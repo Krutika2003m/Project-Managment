@@ -34,7 +34,8 @@ function auth(req, res, next) {
 }
 
 function admin(req, res, next) {
-    if (req.user.role === "admin") {
+
+    if (req.user.role === "admin" || req.user.role === "HOD") {
         return next();
     }
 
